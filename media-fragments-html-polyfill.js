@@ -19,7 +19,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-this.HTMLMediaElement && (function (global) {
+this.HTMLMediaElement && (function () {
     function seek() {
         var fragment = location.hash.slice(1).split('&');
         var elementid = fragment.shift();
@@ -34,4 +34,4 @@ this.HTMLMediaElement && (function (global) {
     }
     addEventListener("hashchange", seek);
     addEventListener("DOMContentLoaded", seek);
-})(this);
+})();
