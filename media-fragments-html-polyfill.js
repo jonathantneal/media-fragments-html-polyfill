@@ -26,10 +26,11 @@ this.HTMLMediaElement && (function () {
         var mediafragment = fragment.join('&');
         var element = document.getElementById(elementid);
         if (element) {
+            var elementpaused = element.paused;
             element.scrollIntoView();
             element.focus();  /* triggers :focus CSS pseudo-class in WebKit */
             element.src = element.currentSrc.split('#')[0] + '#' + mediafragment;
-            element.load();
+            element[elementpaused ? "load" : "play"]();
         }
     }
     addEventListener("hashchange", seek);
